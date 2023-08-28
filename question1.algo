@@ -1,0 +1,24 @@
+FUNCTION distinct(t1,t2:tab;n,m:INTEGER) : INTEGER
+VAR
+    tab=t1 : ARRAY_OF INTEGER[n];
+    tab=t2 : ARRAY_OF INTEGER[m];
+    s,i,j,n,m:INTEGER
+BEGIN
+    s=0;
+    i=0;
+    WHILE (i<n) DO
+        REPEAT
+            trouve=false;
+            IF (t1[i]=t2[j]) THEN
+                trouve=true;
+            ELSE
+                j=j+1;
+            END_IF
+        UNTIL (j=m or trouve==true)
+        IF (trouve==false) THEN
+            s=s+t1[i];
+        END_IF
+        i=i+1;
+    END_WHILE
+    RETURN s ;
+END

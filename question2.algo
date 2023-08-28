@@ -1,0 +1,23 @@
+ALGORITHM dot_product
+PROCEDURE dotpr(t1,t2:tab)
+BEGIN
+    Read(t1);
+    Read(t2);
+    WHILE (len(t1)==len(t2)) DO
+        IF (dot(t1,t2)==true) THEN
+            Write("nombres orthogonaux")
+         ELSE
+            Write("ces nombres ne sont pas orthogonaux")
+        END_IF    
+    END_WHILE
+END
+
+FUNCTION dot(t1,t2:tab) : BOOLEAN
+BEGIN
+    ps=0;
+    x=len(t1);
+    FOR i FROM 0 TO x STEP 1  DO
+        ps=ps+(t1[i]*t2[i])
+    END_FOR
+    RETURN ps==0 ;
+END
